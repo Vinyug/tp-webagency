@@ -157,7 +157,7 @@ section {
 .carousel {
     flex-direction: row;
 }
-.carouselImages {
+.carouselContainer {
     display: none;
 }
 .carouselDescription {
@@ -166,6 +166,7 @@ section {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 1rem;
+    padding-left: 2rem;
 }
 .carouselText {
     text-align: left;
@@ -206,6 +207,9 @@ section {
     text-align: center;
     margin: 0 2rem;
     flex: 1 1 80%;
+}
+.semiDivider {
+    display: none;
 }
 .servicesTitle {
     display: flex;
@@ -515,9 +519,10 @@ footer {
         height: 272px;
         padding: 0;
     }
-    .carouselImages {
+    .carouselContainer {
         display: block;
         height: 100%;
+        width: 100%;
     }
     .carouselDescription {
         position: absolute;
@@ -541,6 +546,15 @@ footer {
     }
     .carouselImageMobile {
         display: none;
+    }
+    .semiDivider {
+        position: relative;
+        display: block;
+        top: -1.45rem;
+        height: 0.4rem;
+        width: 45%;
+        text-align-last: left;
+        background-color: var(--blue);
     }
     .projectsCard {
         flex-direction: row;

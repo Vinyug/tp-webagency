@@ -1,0 +1,209 @@
+
+
+@keyframes tonext {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: 100%;
+    }
+    98% {
+      left: 100%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes tostart {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: -300%;
+    }
+    98% {
+      left: -300%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes snap {
+    96% {
+      scroll-snap-align: center;
+    }
+    97% {
+      scroll-snap-align: none;
+    }
+    99% {
+      scroll-snap-align: none;
+    }
+    100% {
+      scroll-snap-align: center;
+    }
+  }
+  * {
+    box-sizing: border-box;
+    scrollbar-color: transparent transparent; /* thumb and track color */
+    scrollbar-width: 0px;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
+  
+  * {
+    -ms-overflow-style: none;
+  }
+  
+  ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .carouselContainer {
+    position: relative;
+    padding-top: 33%;
+    filter: drop-shadow(0 0 10px #0003);
+    perspective: 100px;
+  }
+  
+  .carousel__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    background-image: url('../images/slider/slide-1-large.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.carousel__slide:nth-child(even) {
+    background-image: url('../images/slider/slide-2-large.jpg');
+  }
+  
+  .carousel__slide:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-40%,70px);
+    color: #fff;
+    font-size: 2em;
+  }
+  
+  .carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+  }
+  
+  @media (hover: hover) {
+    .carousel__snapper {
+      animation-name: tonext, snap;
+      animation-timing-function: ease;
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+    }
+  
+    .carousel__slide:last-child .carousel__snapper {
+      animation-name: tostart, snap;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__snapper {
+      animation-name: none;
+    }
+  }
+  
+  .carouselContainer:hover .carousel__snapper,
+  .carouselContainer:focus-within .carousel__snapper {
+    animation-name: none;
+  }
+  .carouselContainer::before,
+  .carouselContainer::after,
+  .carousel__prev,
+  .carousel__next {
+    position: absolute;
+    top: 0;
+    margin-top: 15%;
+    width: 6rem;
+    height: 6rem;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    font-size: 0;
+    outline: 0;
+  }
+  
+  .carouselContainer::before,
+  .carousel__prev {
+    left: -3rem;
+  }
+  
+  .carouselContainer::after,
+  .carousel__next {
+    right: -3rem;
+  }
+  
+  .carouselContainer::before {
+      content: '';
+      z-index: 1;
+      background-color: #29292c;
+      background-size: 6rem 6rem;
+      background-repeat: no-repeat;
+      background-position: 1.5rem;
+      color: #fff;
+      font-size: 2.5rem;
+      line-height: 4rem;
+      text-align: center;
+      pointer-events: none;
+    }
+    .carouselContainer::after {
+      content: '';
+      z-index: 1;
+      background-color: #29292c;
+      background-size: 6rem 6rem;
+      background-repeat: no-repeat;
+      background-position: -1.5rem;
+      color: #fff;
+      font-size: 2.5rem;
+      line-height: 4rem;
+      text-align: center;
+      pointer-events: none;
+    }
+    
+  .carouselContainer::before {
+    background-image: url("../images/chevron-left.svg");
+  }
+  
+  .carouselContainer::after {
+    background-image: url("../images/chevron-right.svg");
+  }
+
+

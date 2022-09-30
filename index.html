@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Web Agency</title>
         <link rel="shortcut icon" href="assets/images/favicon-16x16.png" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/carousel.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/fonts/font.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,10 +36,21 @@
         
         <!-- Carousel -->
         <section id="accueil" class="carousel maxWidthBody">
-            <div class="carouselImages">
-                <img src="assets/images/slider/slide-1-medium.jpg" alt="Image-1" width="100%" srcset="
-                assets/images/slider/slide-1-medium.jpg 768w, 
-                assets/images/slider/slide-1-large.jpg 980w">
+            
+            <div class="carouselContainer" aria-label="Gallery">
+                <ol class="carousel__viewport">
+                    <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+                        <div class="carousel__snapper">
+                            <a href="#carousel__slide2" class="carousel__prev">Go to last slide</a>
+                            <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+                        </div>
+                    </li>
+                    <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+                        <div class="carousel__snapper"></div>
+                        <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
+                        <a href="#carousel__slide1" class="carousel__next">Go to next slide</a>
+                    </li>
+                </ol>
             </div>
 
             <div class="carouselDescription wrapper">
@@ -54,6 +66,8 @@
             <div class="carouselImageMobile">
                 <img src="assets/images/slider/slide-1-small.jpg" alt="Image">
             </div>
+
+            <span class="semiDivider"></span>
         </section>    
         
         <!-- Services -->
