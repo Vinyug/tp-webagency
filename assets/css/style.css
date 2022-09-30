@@ -1,0 +1,594 @@
+:root {
+    /* debug */
+    --alphaColorForDebug: 1;
+    /* --gridImageForDebug: url('grid-16x16.png'); */
+
+    /* Wrapper */
+    --wrapper: 2080px;
+
+    /* Global colors */
+    --white: rgba(255, 255, 255, 1);
+    --offWhite: rgba(245, 245, 245, 1);
+    --light: rgba(234, 246, 250, 1);
+    --dark: rgba(0, 0, 0, 1);
+    --grey: rgba(118, 118, 118, 1);
+    --greylight: rgba(238, 238, 238, 1);
+    --blue: rgba(93, 173, 211, 1);
+    --bluelight: rgba(184, 224, 238, 1);
+    --beige: rgba(229, 229, 229, 1);
+    --brown: rgba(127, 86, 64, 1);
+
+    /* Fonts */
+    --fontPrimary: 'Roboto-regular', sans-serif;
+    --fontSecondary: 'Roboto-bold', sans-serif;
+}
+
+/* Global */
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    opacity: var(--alphaColorForDebug);
+    background-image: var(--gridImageForDebug);
+    background-color: var(--white); 
+    color: var(--grey);
+    font-family: var(--fontPrimary);
+    font-size: 1rem;
+    line-height: 1;
+}
+.maxWidthBody {
+    background-color: var(--white);
+    box-shadow: 0 0 0 100vmax var(--white);
+    clip-path: inset(0 -100vmax);
+}
+.maxWidthBodyOffWhite {
+    background-color: var(--offWhite);
+    box-shadow: 0 0 0 100vmax var(--offWhite);
+    clip-path: inset(0 -100vmax);
+}
+.wrapper {
+    margin-inline: max(2rem, 50% - var(--wrapper)/2);
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.blue {
+    color: var(--blue);
+}
+.point {
+    align-self: center;
+    width: 1rem;
+    height: 1rem;
+    color: var(--blue);
+}
+.divider {
+    position: relative;
+    top: -0.5rem;
+    background-color: var(--greylight);
+    align-self: center;
+    width: 138px;
+    height: 1px;
+    z-index: -1;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+.entreprise {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: var(--fontSecondary);
+    color: var(--blue);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem 0;
+}
+.entreprise img {
+    width: 64px;
+    height: 64px;
+}
+.entreprise h1 {
+    padding-top: 1rem;
+}
+.logoHeader {
+    margin-right: 0.75rem;
+}
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* A REVOIR NAVBAR */
+.navToggler {
+    display: block;
+    cursor: pointer;
+    color: var(--blue);
+    align-self: flex-end;
+    margin: 2rem 0 1rem 0;
+}
+.navToggler ~ input{
+    display: none;
+}
+.navToggler ~ input:checked ~ .navbar ul { 
+    display: flex;
+}
+.navbar ul {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+.navbar li {
+    list-style: none;
+    padding-top: 3rem;
+}
+.navbar a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--fontSecondary);
+    color: var(--blue);
+    font-size: 1.5rem;
+}
+.navbar a:hover {
+    color: var(--blue);
+    font-weight: 600;
+    transition-duration: 0.5s;
+    transition-property: color;
+}
+section {
+    padding: 0.75rem 0;
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.carousel {
+    flex-direction: row;
+}
+.carouselImages {
+    display: none;
+}
+.carouselDescription {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.carouselText {
+    text-align: left;
+    margin: 0 2rem 1rem 0;
+    max-width: 352px;
+    flex: 1 0 45%;
+}
+.carousel h2 {
+    font-family: var(--fontSecondary);
+    font-size: 1.85rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+    padding-bottom: 0.5rem;
+}
+.carousel p {
+    line-height: 1.75rem;
+}
+.carouselInfo {
+    display: flex;
+    align-items: end;
+    margin-bottom: 0.75rem;
+}
+.carouselInfo a {
+    text-decoration: none;
+    background-color: var(--blue);
+    color: var(--white);
+    font-size: 0.875rem;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0.25rem;
+    border-radius: 5px;
+}
+.carouselInfo a:hover {
+    padding: 1rem 1.25rem 1rem 1.5rem;
+    margin-bottom: 0;
+    box-shadow: 1px 1px 3px var(--grey);
+}
+.carouselImageMobile {
+    text-align: center;
+    margin: 0 2rem;
+    flex: 1 1 80%;
+}
+.servicesTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+    flex: 1 0 100%;
+}
+.servicesTitle h3 {
+    font-family: var(--fontSecondary);
+    color: var(--dark);
+    font-size: 2.75rem;
+    margin-bottom: 2.75rem;
+    text-transform: uppercase;
+}
+.servicesTitle p {
+    max-width: 452px;
+    margin: auto;
+    font-size: 0.94rem;
+    margin-top: 2.25rem;
+    line-height: 1.875rem;
+}
+.servicesImage {
+    align-self: center;
+    text-align: center;
+    margin: auto;
+    padding: 0.75rem;
+    margin: 2rem 0;
+    flex: 1 0 40%;
+}
+.servicesDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    margin-top: 0.75rem;
+    padding: 0.75rem 0;
+    flex: 1 0 40%;
+}
+.boxDescription {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.boxDescription svg:first-child {
+    color: var(--dark);
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--grey);
+    border-radius: 50%;
+}
+.boxDescription .point {
+    position: relative;
+    left: -0.5rem;
+}
+.textDescription {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+.textDescription h4 {
+    font-family: var(--fontSecondary);
+    color: var(--dark);
+    line-height: 1.5rem;
+}
+.textDescription p {
+    line-height: 1.25rem;
+}
+.projectsText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    flex: 1 0 100%;
+}
+.projectsText h3 {
+    font-family: var(--fontSecondary);
+    color: var(--dark);
+    font-size: 2.75rem;
+    margin-bottom: 2.75rem;
+    text-transform: uppercase;
+}
+.projectsText p {
+    margin: auto;
+    font-size: 0.95rem;
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+    line-height: 1.1rem;
+}
+.projectsText .filter {
+    display: block;
+    max-width: 448px;
+    margin: 0 auto;
+}
+.projectsText .filter ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--beige);
+    padding: 0.95rem 0;
+    border-radius: 10px;
+}
+.projectsText .filter li {
+    list-style: none;
+    border-radius: 10px;
+}
+.projectsText .filter a {
+    text-decoration: none;
+    color: var(--grey);
+    padding: 0.75rem 1rem;
+}
+.projectsText .filter a:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+.projectsText .filter li:first-child a {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.projectsText .filter li:last-child a {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.projects {
+    margin-bottom: 0;
+    padding-bottom: 4rem;
+}
+.projectsCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 2rem;
+}
+.card {
+    position: relative;
+}
+.card input {
+    display: none;
+}
+.cardCheck {
+    display: block;
+    cursor: pointer;
+}
+.cardCkeck ~ input:checked ~ .cardHover { 
+    display: flex;
+}
+.cardHover {
+    display: none;
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    background-color: var(--brown);
+    color: var(--white);
+}
+.hoverText {
+    padding: 0.5rem;
+}
+.hoverText h5 {
+    font-family: var(--fontSecondary);
+    font-size: 0.875rem;
+}
+.hoverText p {
+    font-size: 0.875rem;
+}
+.cardHover a {
+    position: absolute;
+    right: 1rem;
+    top: -1.6rem;
+    color: var(--white);
+    background-color: var(--blue);
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    padding: 1rem;
+}
+.contact {
+    background-color: var(--bluelight);
+    padding: 4rem 0;
+}
+.contactMaps {
+    height: 584px;
+    opacity: 0.4;
+}
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    background-color: var(--light);
+    height: 584px;   
+    opacity: 0.85;
+    padding: 2rem 1rem 0 1rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+.contactForm h4 {
+    font-family: var(--fontSecondary);
+    color: var(--dark);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.contactForm address {
+    font-family: var(--fontSecondary);
+    color: var(--dark);
+    text-align: left;
+    font-size: 0.95rem;
+    font-style: normal;
+    line-height: 1.15rem;
+}
+.contactForm .addressCountry {
+    display: none;
+}
+.contactForm form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: 100%;
+    flex-grow: 1;
+}
+.contactForm input {
+    width: 100%;
+    height: 2rem;
+    padding-left: 0.25rem;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.contactForm textarea {
+    width: 100%;
+    resize: none;
+    padding-top: 0.25rem;
+    padding-left: 0.25rem;
+    margin-bottom: 1rem;
+}
+.contactForm p {
+    display: none;
+    color: var(--blue);
+    font-size: 0.875rem;
+    text-align-last: left;
+    padding-top: 2px;
+}
+.contactForm input:focus + .comments, .contactForm textarea:focus + .comments {
+    display: block;
+}
+.contactForm input:focus, .contactForm textarea:focus {
+    margin-bottom: 0;
+}
+.contactForm input[type=submit] {
+    margin: 1.5rem 0;
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    padding: 0 0.5rem;
+    cursor: pointer;
+}
+.contactForm input[type=submit]:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    transition-duration: 0.3s;
+}
+footer {
+    color: var(--dark);
+    text-align: center;
+    margin: 2rem 0 4rem 0;
+}
+
+
+/* Media medium */
+@media screen and (min-width: 768px)
+{
+    .navToggler {
+        display: none;
+    }
+    .navbar ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+    .navbar li {
+        padding-top: 2.75rem;
+    }
+    .navbar a {
+        font-family: var(--fontPrimary);
+        color: var(--grey);
+        font-size: 1rem;
+        text-transform: none;
+        padding: 2.3rem 1rem;
+    }
+    .navbar a:hover {
+        color: var(--grey);
+        font-weight: 400;
+        border-top: 4px solid var(--blue);
+        transition-duration: 0.5s;
+        transition-property: color;
+    }
+    .carousel {
+        position: relative;
+        flex-direction: column;
+        height: 272px;
+        padding: 0;
+    }
+    .carouselImages {
+        display: block;
+        height: 100%;
+    }
+    .carouselDescription {
+        position: absolute;
+        width: 22rem;
+        background-color: transparent;
+        color: var(--white);
+        flex-direction: column;
+        text-align: center;
+        margin-top: 3rem;
+    }
+    .carousel p {
+        line-height: 1rem;
+    }
+    .carouselInfo a {
+        padding: 1rem 1.5rem 1rem 1.5rem;
+    }
+    .carouselInfo a:hover {
+        margin-bottom: 0;
+        padding-right: 1.5rem;
+        box-shadow: 1px 1px 4px var(--dark);
+    }
+    .carouselImageMobile {
+        display: none;
+    }
+    .projectsCard {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .projectsCard .card {
+        max-width: 336px;
+        flex: 0 0 45%
+    }
+    .contact {
+        position: relative;
+        flex-direction: column;
+    }
+    .contactForm {
+        position: absolute;
+        right: 0;
+        top: 0;    
+        width: 24rem;
+        text-align: center;
+        margin-top: 4rem;
+    }    
+}
+
+
+/* Media desktop */
+@media screen and (min-width: 980px)
+{
+    .carousel {
+        height: clamp(272px, 10%, 876px);
+    }
+    .carouselDescription {
+        margin-top: clamp(3rem, 8%, 17rem);
+    }
+    .services {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .servicesTitle p {
+        max-width: 100%;
+    }
+    .servicesImage {
+        margin: 7rem 5rem 0 5rem;
+    }
+    .projectsCard .card {
+        max-width: 512px;
+        flex: 0 0 22%
+    }
+    .contactForm {
+        right: 2rem;
+    } 
+}
