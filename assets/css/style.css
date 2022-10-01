@@ -463,6 +463,7 @@ section {
     margin-bottom: 0;
 }
 .contactForm input[type=submit] {
+    width: inherit;
     margin: 1.5rem 0;
     background-color: var(--blue);
     color: var(--white);
