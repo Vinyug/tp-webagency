@@ -482,17 +482,24 @@ footer {
     margin: 2rem 0 4rem 0;
 }
 
-/* Media medium */
-@media screen and (max-width: 363px)
+/* Media exception */
+@media screen and (max-width: 267px)
 {
     .navToggler {
-        width: 100%;
-        justify-self: start;
-        margin: 0;
+    width: 100%;
+    justify-self: start;
     }
     nav li {
         width: 100%;
         justify-self: start;
+    }
+}
+
+
+@media screen and (max-width: 460px)
+{
+    .entreprise h1 {
+        display: none;
     }
 }
 
