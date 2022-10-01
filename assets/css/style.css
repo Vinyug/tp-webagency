@@ -443,6 +443,7 @@ section {
     margin-bottom: 1rem;
 }
 .contactForm textarea {
+    font-family: var(--fontPrimary);
     width: 100%;
     resize: none;
     padding-top: 0.25rem;
