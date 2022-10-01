@@ -300,9 +300,10 @@ section {
     margin-bottom: 2.25rem;
     line-height: 1.1rem;
 }
+
+
+
 .projectsText .filter {
-    display: block;
-    max-width: 448px;
     margin: 0 auto;
 }
 .projectsText .filter ul {
@@ -310,16 +311,15 @@ section {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: var(--beige);
-    padding: 0.95rem 0;
-    border-radius: 10px;
 }
 .projectsText .filter li {
     list-style: none;
     border-radius: 10px;
+    margin: 1rem 0;
 }
 .projectsText .filter a {
     text-decoration: none;
+    background-color: var(--beige);
     color: var(--grey);
     padding: 0.75rem 1rem;
 }
@@ -335,6 +335,11 @@ section {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+
+
+
+
 .projects {
     margin-bottom: 0;
     padding-bottom: 4rem;
